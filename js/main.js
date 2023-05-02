@@ -1,6 +1,6 @@
 (() => {
   const listElems = document.querySelectorAll(".list-item");
-  const panelItemElems = document.querySelectorAll(".panel-item");
+  let panelItemElems = document.querySelectorAll(".panel-item");
   const numberOfPanels = 11;
   const panelSize = 600;
   // const unitAngle = 360 / numberOfPanels;
@@ -8,9 +8,11 @@
   const angle = 360 / numberOfPanels;
   const observerElems = document.querySelectorAll(".observer");
   const panelListElem = document.querySelector(".panel-list");
+  const panels = document.querySelector(".panels");
   let prevPageYOffset;
   let scrollDirection;
   let currentIndex; //현환 프로젝트 번호
+  let currentShowPanel;
 
   //panel rotate,translate
   function setPanelItems() {
@@ -25,16 +27,28 @@
   }
   setPanelItems();
 
+  function inactivate() {
+    if (currentShowPanel) {
+      currentShowPanel.classList.remove("active");
+    }
+  }
+
+  function setCurrentPanel() {
+    inactivate();
+    currentShowPanel = panelItemElems[currentIndex];
+    currentShowPanel.classList.add("active");
+  }
   function panelRotate() {
     panelListElem.style.transform = ` translateZ(${
       numberOfPanels * 100
     }px) rotateY(${currentIndex * angle}deg)`;
+    setCurrentPanel();
   }
+
   // intersectionObserver
   const io = new IntersectionObserver((entries, observer) => {
     for (let i = 0; i < entries.length; i++) {
       if (entries[i].isIntersecting) {
-        console.log(entries[i].target.dataset.index * 1);
         if (entries[i].target.classList.contains("observe-start")) {
           currentIndex = 0;
           panelRotate();
@@ -42,18 +56,34 @@
         }
         const projectIndex = entries[i].target.dataset.index * 1;
         if (projectIndex >= 0) {
-          if (scrollDirection === "down") {
-            currentIndex = projectIndex;
-          } else {
+          if (scrollDirection === "up") {
             currentIndex = projectIndex + 1;
+          } else {
+            currentIndex = projectIndex;
           }
-          if (currentIndex > numberOfPanels - 1) {
-            currentIndex = numberOfPanels - 1;
+          if (currentIndex < numberOfPanels) {
+            panelRotate();
           }
-          panelRotate();
+        }
+        if (
+          scrollDirection === "up" &&
+          entries[i].target.classList.contains("header-content")
+        ) {
+          panelListElem.style.transform = `translateZ(0) rotateY(0)`;
+          inactivate();
+        }
+        if (
+          scrollDirection === "down" &&
+          entries[i].target.classList.contains("observe-end")
+        ) {
+          panels.classList.add("static-position");
+        }
+        if (scrollDirection === "up" && currentIndex == numberOfPanels - 1) {
+          panels.classList.remove("static-position");
         }
       }
     }
+    console.log(currentIndex);
   });
   observerElems.forEach((elem, i) => {
     io.observe(elem);
