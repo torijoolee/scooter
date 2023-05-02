@@ -1,5 +1,6 @@
 (() => {
   const listElems = document.querySelectorAll(".list-item");
+  const header = document.querySelector("header");
   let panelItemElems = document.querySelectorAll(".panel-item");
   const numberOfPanels = 11;
   const panelSize = 600;
@@ -9,6 +10,7 @@
   const observerElems = document.querySelectorAll(".observer");
   const panelListElem = document.querySelector(".panel-list");
   const panels = document.querySelector(".panels");
+  const scrollTopBtn = document.querySelector(".scrollTop");
   let prevPageYOffset;
   let scrollDirection;
   let currentIndex; //현환 프로젝트 번호
@@ -83,7 +85,6 @@
         }
       }
     }
-    console.log(currentIndex);
   });
   observerElems.forEach((elem, i) => {
     io.observe(elem);
@@ -96,5 +97,13 @@
       scrollDirection = "down";
     }
     prevPageYOffset = window.scrollY;
+  });
+
+  window.addEventListener("scroll", () => {
+    if (scrollY > header.offsetHeight) {
+      scrollTopBtn.classList.add("On");
+    } else {
+      scrollTopBtn.classList.remove("On");
+    }
   });
 })();

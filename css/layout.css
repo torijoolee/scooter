@@ -166,10 +166,14 @@ img {
 .normal-content {
   padding-top: 45px;
   background-color: #dce2d8;
+  padding-bottom: 45px;
+}
+.normal-content .inner {
+  margin-bottom: 2.5em;
 }
 .normal-img-wrap {
   width: 90vw;
-  height: 480px;
+  height: 505px;
   /* background-color: #eee; */
   margin: auto;
   position: relative;
@@ -177,15 +181,16 @@ img {
 }
 .img-wrap {
   width: 90vw;
-  height: 400px;
-  margin: 4em auto;
+  height: 505px;
+  margin: 0em auto;
+  margin-top: 0.5em;
   background-repeat: no-repeat;
   position: absolute;
   top: 0;
   left: 0;
 }
 .img-wrap:nth-child(1) {
-  height: 430px;
+  height: 500px;
 }
 .img-wrap:nth-child(2) {
   opacity: 0;
@@ -211,6 +216,49 @@ img {
 .normal-content .paragraph {
   margin-top: 1em;
 }
+/* read more */
+.read-more {
+  background-color: #dce2d8;
+  /* padding-bottom: 45px; */
+  max-height: 0;
+  overflow: hidden;
+}
+.view-more-btn {
+  all: unset;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 0.8em 1.2em;
+  border-radius: 5px;
+}
+.view-more-btn i {
+  display: inline-block;
+  position: relative;
+  width: 12px;
+  height: 12px;
+  margin-left: 0.6em;
+}
+.view-more-btn i::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: calc(50% - 1px);
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #51af65;
+}
+.view-more-btn i::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: calc(50% - 1px);
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #51af65;
+  transform: rotate(90deg);
+}
 /* footer */
 .footer {
   background-color: #243133;
@@ -223,4 +271,30 @@ img {
 .copy-right {
   padding-top: 5rem;
   border-top: 1px solid #222;
+}
+/* scrollbtn */
+.scrollTop {
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 5%;
+  right: 6%;
+  opacity: 0;
+  text-decoration: none;
+  background-color: #51af65;
+  transition: all 0.5s ease-in-out;
+  z-index: 100;
+}
+.scrollTop i {
+  transform: rotate(-90deg);
+  font-size: xx-large;
+  color: #dce2d8;
+}
+.scrollTop.On {
+  opacity: 1;
 }
