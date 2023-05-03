@@ -6,6 +6,7 @@ html {
   color: #222;
   box-sizing: border-box;
 }
+
 .control-bg {
   overflow: hidden;
   background-repeat: no-repeat;
@@ -249,6 +250,8 @@ img {
   /* padding-bottom: 45px; */
   max-height: 0;
   overflow: hidden;
+  width: 100vw;
+  box-sizing: border-box;
 }
 .read-more .paragraph {
   padding-bottom: 45px;
@@ -341,4 +344,7 @@ img {
 }
 .scrollTop.On {
   opacity: 1;
+}
+.pc-more {
+  display: none;
 }
