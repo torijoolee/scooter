@@ -336,6 +336,7 @@ img {
   background-color: #51af65;
   transition: all 0.5s ease-in-out;
   z-index: 100;
+  scroll-behavior: smooth;
 }
 .scrollTop i {
   transform: rotate(-90deg);
@@ -345,6 +346,7 @@ img {
 .scrollTop.On {
   opacity: 1;
 }
+
 .pc-more {
   display: none;
 }
