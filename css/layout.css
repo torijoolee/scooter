@@ -299,16 +299,22 @@ img {
 
 /* footer */
 .footer {
-  background-color: #243133;
+  background-color: #435c60;
+  padding-bottom: 4rem;
 }
 .footer p {
   font-size: 1.2rem;
   text-align: center;
   line-height: 1.8em;
+  color: #dce2d8;
 }
 .copy-right {
-  padding-top: 5rem;
-  border-top: 1px solid #222;
+  padding-top: 3rem;
+  padding-bottom: 1.5em;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.5);
+}
+.class {
+  padding-top: 1.5em;
 }
 /* scrollbtn */
 .scrollTop {
