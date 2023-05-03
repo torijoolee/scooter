@@ -10,7 +10,7 @@
   const observerElems = document.querySelectorAll(".observer");
   const panelListElem = document.querySelector(".panel-list");
   const panels = document.querySelector(".panels");
-  const scrollTopBtn = document.querySelector(".scrollTop");
+
   let prevPageYOffset;
   let scrollDirection;
   let currentIndex; //현환 프로젝트 번호
@@ -97,13 +97,5 @@
       scrollDirection = "down";
     }
     prevPageYOffset = window.scrollY;
-  });
-
-  window.addEventListener("scroll", () => {
-    if (scrollY > header.offsetHeight) {
-      scrollTopBtn.classList.add("On");
-    } else {
-      scrollTopBtn.classList.remove("On");
-    }
   });
 })();
