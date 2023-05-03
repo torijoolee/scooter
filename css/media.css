@@ -1,7 +1,4 @@
 @media screen and (min-width: 767px) {
-  .list-content {
-    width: 50vw;
-  }
   .img-wrap:nth-child(2) {
     height: 500px;
   }
@@ -16,7 +13,7 @@
     padding: 0 60px;
   }
   .list-content {
-    width: 40vw;
+    width: 380px;
   }
   .normal-content {
     padding-top: 55px;
@@ -65,11 +62,14 @@
     position: absolute;
     bottom: 0;
   }
+  .scrollTop {
+    width: 70px;
+    height: 70px;
+    right: 4%;
+    bottom: 6%;
+  }
 }
 @media screen and (min-width: 1200px) {
-  .list-content {
-    width: 30vw;
-  }
   .normal-img-wrap {
     width: 30vw;
   }
@@ -83,7 +83,7 @@
     display: block;
   }
   .normal-content {
-    height: 950px;
+    height: 1010px;
   }
   .image-btn {
     bottom: 0px;
