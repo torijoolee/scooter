@@ -1,2 +1,53 @@
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 767px) {
+  .list-content {
+    width: 50vw;
+  }
+  .img-wrap:nth-child(2) {
+    height: 500px;
+  }
+}
+@media screen and (min-width: 1087px) {
+  .header .paragraph {
+    column-count: 2;
+    text-align: justify;
+    column-gap: 2em;
+  }
+  .width-setter {
+    padding: 0 60px;
+  }
+  .list-content {
+    width: 40vw;
+  }
+  .normal-content {
+    padding-top: 50px;
+  }
+  .tit-medium {
+    margin-bottom: 1em;
+  }
+
+  .normal-img-wrap {
+    width: 45vw;
+    margin-right: 0;
+    float: right;
+  }
+  .img-wrap {
+    width: 100%;
+  }
+  .img-wrap:nth-child(1) {
+    height: 480px;
+  }
+  .img-wrap:nth-child(2) {
+    height: 400px;
+  }
+  .image-btn {
+    z-index: 100;
+    position: relative;
+    bottom: 60px;
+  }
+  .normal-content {
+    padding-bottom: 50px;
+  }
+  .read-more {
+    width: auto;
+  }
 }
